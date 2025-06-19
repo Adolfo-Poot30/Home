@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>muply</title>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/logo.png" type="image/x-icon" />
+</head>
+<body>
+  <div id="loader"></div>
+  <header class="navbar">
+    <div class="logo">muply</div>
+    <nav class="nav-links">
+      <a href="#services">Servicios</a>
+      <a href="#about">Sobre nosotros</a>
+      <a href="#contact">Contáctanos</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <h4>¡Bienvenido a Muply!</h4>
+      <h1>Resolvemos procesos empresariales con Software.</h1>
+      <p>Nuestra marca te ayuda a alcanzar el éxito. Nuestra pasión es la innovación.</p>
+      <div class="hero-buttons">
+        <a class="btn primary" href="#contact">Contáctanos</a>
+      </div>
+    </div>
+    <div class="hero-image fade-in">
+      <img src="assets/man-with-laptop.png" alt="Man with laptop" />
+    </div>
+  </section>
+
+  <div class="services-title fade-in"><h2>Nuestros Servicios</h2></div>
+  <section class="services fade-in" id="services">
+    <div class="card">
+      <img src="assets/web.png" alt="Web" />
+      <h3>Desarrollo web</h3>
+      <p>Desarrollamos sitios y páginas web a medida para tu negocio.</p>
+    </div>
+    <div class="card">
+      <img src="assets/movil.png" alt="Movil" />
+      <h3>Aplicaciones móviles</h3>
+      <p>Desarrollamos aplicaciones móviles multiplataforma (android & ios).</p>
+    </div>
+    <div class="card">
+      <img src="assets/pc.png" alt="Pc" />
+      <h3>Programas de escritorio</h3>
+      <p>Desarrollamos programas para Windows y MacOS.</p>
+    </div>
+  </section>
+    
+  
+  <section class="technologies fade-in">
+    <h2>Tecnologías que usamos</h2>
+    <div class="logos">
+      <img src="assets/js.png" alt="js" title="JavaScript"/>
+      <img src="assets/react.png" alt="react" title="React"/>
+      <img src="assets/php.png" alt="php" title="PHP"/>
+      <img src="assets/java.png" alt="java" title="Java"/>
+      <img src="assets/node.png" alt="node" title="Node.js"/>
+      <img src="assets/flutter.png" alt="flutter" title="Flutter"/>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-text">
+      <h2>Déjanos hacer el trabajo para que tú puedas concentrarte en lo que importa.</h2>
+      <ul class="features">
+        <li><span>✔</span>Agiliza procesos de tu empresa</li>
+        <li class="active"><span>✔</span>Obten presencia en línea</li>
+        <li><span>✔</span>Haz realidad tu idea de software</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about-us fade-in" id="about">
+    <h2>Sobre Nosotros</h2>
+    <div class="about-content">
+      <div class="founder-photo">
+        <img src="assets/logo.png" alt="Logo" />
+      </div>
+      <div class="about-text">
+        <p>
+          En Muply, nuestra misión es transformar ideas en soluciones tecnológicas innovadoras. 
+          Fundada por el Técnico en Desarrollo de Software Juan P. Nuestra empresa se dedica a ofrecer servicios de desarrollo 
+          de software que impulsan el éxito empresarial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact fade-in" id="contact">
+    <h2>Contáctanos</h2>
+    <p>¡Estamos encantados de escucharte! Completa el formulario y nos contactaremos de inmediato.</p>
+    <form action="#" method="post" class="contact-form">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" placeholder="Tu correo" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Teléfono</label>
+        <input type="text" id="phone" name="email" placeholder="Tu teléfono (opcional)" />
+      </div>
+      <div class="form-group">
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn primary">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Muply.</p>
+  </footer>
+</body>
+</html>
