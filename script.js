@@ -4,9 +4,9 @@ window.addEventListener('load', () => {
     setTimeout(() => {
       loader.style.display = 'none';
     }, 500); // Espera 500ms para ocultar completamente
-  });
+});
 
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const fadeEls = document.querySelectorAll('.fade-in');
   
     const observer = new IntersectionObserver(entries => {
@@ -21,5 +21,53 @@ window.addEventListener('load', () => {
     });
   
     fadeEls.forEach(el => observer.observe(el));
-  });
+});
   
+function mostrarToast(mensaje, tipo = 'success') {
+  const toast = document.getElementById('toast');
+  toast.textContent = mensaje;
+  toast.className = `toast show ${tipo}`;
+
+  // Ocultar después de 4 segundos
+  setTimeout(() => {
+    toast.className = 'toast';
+  }, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const data = {
+      nombre: form.name.value,
+      correo: form.email.value,
+      telefono: form.phone.value,
+      mensaje: form.message.value,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/contacto', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        mostrarToast('✅ Mensaje enviado correctamente. ¡Gracias por contactarnos!');
+        form.reset();
+      } else {
+        mostrarToast('❌ Error: ' + (result.error || 'No se pudo enviar el mensaje.'), 'error');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      mostrarToast('❌ Error de conexión con el servidor.', 'error');
+    }
+  });
+});
+
