@@ -480,4 +480,10 @@ footer {
 .toast.error {
   background-color: #dc3545;
 }
+/*evita desbordes*/
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
