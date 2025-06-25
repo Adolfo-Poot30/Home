@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
 
     const form = e.target;
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex'; // Mostrar animación de carga
 
     const data = {
       nombre: form.name.value,
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/contacto', {
+      const response = await fetch('https://contacto-api-slca.onrender.com/api/contacto', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -62,11 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
         mostrarToast('✅ Mensaje enviado correctamente. ¡Gracias por contactarnos!');
         form.reset();
       } else {
-        mostrarToast('❌ Error: ' + (result.error || 'No se pudo enviar el mensaje.'), 'error');
+        mostrarToast('Error: ' + (result.error || 'No se pudo enviar el mensaje.'), 'error');
       }
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
-      mostrarToast('❌ Error de conexión con el servidor.', 'error');
+      mostrarToast('Error de conexión con el servidor.', 'error');
+    } finally {
+      spinner.style.display = 'none'; // Ocultar animación de carga
     }
   });
 });
