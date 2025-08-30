@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     try {
-      const response = await fetch('https://contacto-api-slca.onrender.com/api/contacto', {
+      const response = await fetch('https://contacto-api-un09.onrender.com/api/contacto', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
