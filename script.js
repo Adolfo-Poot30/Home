@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const result = await response.json();
 
       if (response.ok) {
-        mostrarToast('✅ Mensaje enviado correctamente. ¡Gracias por contactarnos!');
+        mostrarToast('✅ Mensaje enviado correctamente. ¡Gracias por contactarme!');
         form.reset();
       } else {
         mostrarToast('Error: ' + (result.error || 'No se pudo enviar el mensaje.'), 'error');
@@ -74,4 +74,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const questions = document.querySelectorAll(".faq-question");
+
+  questions.forEach(question => {
+    question.addEventListener("click", () => {
+      const item = question.parentElement;
+
+      // Cierra los demás
+      document.querySelectorAll(".faq-item").forEach(faq => {
+        if (faq !== item) {
+          faq.classList.remove("active");
+        }
+      });
+
+      // Alterna el actual
+      item.classList.toggle("active");
+    });
+  });
+});
+
 

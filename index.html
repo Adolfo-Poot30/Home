@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>muply</title>
+  <title>WebPro</title>
   <script src="script.js"></script>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
   <div id="loader"></div>
   <header class="navbar">
-    <div class="logo">muply</div>
+    <div class="logo">WebPro</div>
     <nav class="nav-links">
       <a href="#services">Servicios</a>
-      <a href="#about">Sobre nosotros</a>
-      <a href="#contact">Contáctanos</a>
+      <a href="#about">Sobre mí</a>
+      <a href="#contact">Contáctame</a>
     </nav>
   </header>
   <section class="hero">
-    <div class="hero-content">
-      <h4>¡Bienvenido a Muply!</h4>
-      <h1>Resolvemos procesos empresariales con Software.</h1>
-      <p>Nuestra marca te ayuda a alcanzar el éxito. Nuestra pasión es la innovación.</p>
+    <div class="hero-content fade-in">
+      <h4>¡Bienvenido!</h4>
+      <h1>Diseño y desarrollo tu sitio web por ti.</h1>
+      <p>Te ayudo a alcanzar el éxito con páginas web profesionales. Mi pasión es la innovación.</p>
       <div class="hero-buttons">
-        <a class="btn primary" href="#contact">Contáctanos</a>
+        <a class="btn primary" href="#contact">Contáctame</a>
       </div>
     </div>
     <div class="hero-image fade-in">
@@ -32,41 +35,35 @@
     </div>
   </section>
 
-  <div class="services-title fade-in"><h2>Nuestros Servicios</h2></div>
+  <div class="services-title fade-in">
+    <h2>Servicios</h2>
+  </div>
   <section class="services fade-in" id="services">
-    <div class="card">
-      <img src="assets/web.png" alt="Web" />
-      <h3>Desarrollo web</h3>
-      <p>Desarrollamos sitios y páginas web a medida para tu negocio.</p>
-    </div>
-    <div class="card">
-      <img src="assets/movil.png" alt="Movil" />
-      <h3>Aplicaciones móviles</h3>
-      <p>Desarrollamos aplicaciones móviles multiplataforma (android & ios).</p>
-    </div>
-    <div class="card">
-      <img src="assets/pc.png" alt="Pc" />
-      <h3>Programas de escritorio</h3>
-      <p>Desarrollamos programas para Windows y MacOS.</p>
-    </div>
-  </section>
-    
-  
-  <section class="technologies fade-in">
-    <h2>Tecnologías que usamos</h2>
-    <div class="logos">
-      <img src="assets/js.png" alt="js" title="JavaScript"/>
-      <img src="assets/react.png" alt="react" title="React"/>
-      <img src="assets/php.png" alt="php" title="PHP"/>
-      <img src="assets/java.png" alt="java" title="Java"/>
-      <img src="assets/node.png" alt="node" title="Node.js"/>
-      <img src="assets/flutter.png" alt="flutter" title="Flutter"/>
+    <div class="container fade-in">
+
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Diseño Web Personalizado</h3>
+          <p>Creación de sitios web únicos y atractivos que reflejan la identidad de tu marca.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Diseño Responsive</h3>
+          <p>Sitios que se adaptan perfectamente a cualquier dispositivo: móvil, tablet o desktop.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-globe"></i>
+          <h3>Aplicaciones Web</h3>
+          <p>Desarrollo aplicaciones web completas con funcionalidades avanzadas.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="cta-text">
-      <h2>Déjanos hacer el trabajo para que tú puedas concentrarte en lo que importa.</h2>
+  <section class="cta fade-in">
+    <div class="cta-text fade-in">
+      <h2>Déjame hacer el trabajo para que tú puedas concentrarte en lo que importa.</h2>
       <ul class="features">
         <li><span>✔</span>Agiliza procesos de tu empresa</li>
         <li class="active"><span>✔</span>Obten presencia en línea</li>
@@ -75,25 +72,120 @@
     </div>
   </section>
 
+  <section id="planes" class="section plans fade-in">
+    <div class="container">
+      <h2 class="section-title">Planes</h2>
+      <p class="section-subtitle">Elige el paquete que mejor se adapte a tus necesidades</p>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <h3>Básico</h3>
+          <div class="price">$2,499<span>/MX</span></div>
+          <ul class="features">
+            <li><i class="fas fa-check"></i> Diseño personalizado</li>
+            <li><i class="fas fa-check"></i> 5 páginas</li>
+            <li><i class="fas fa-check"></i> Responsive design</li>
+            <li><i class="fas fa-check"></i> Formulario de contacto</li>
+            <li><i class="fas fa-times"></i> SEO básico</li>
+            <li><i class="fas fa-times"></i> E-commerce</li>
+          </ul>
+          <a href="#contact" class="btn secondary">Contratar</a>
+        </div>
+        <div class="plan-card featured">
+          <div class="popular">Más Popular</div>
+          <h3>Profesional</h3>
+          <div class="price">$3,999<span>/MX</span></div>
+          <ul class="features">
+            <li><i class="fas fa-check"></i> Diseño premium</li>
+            <li><i class="fas fa-check"></i> Hasta 10 páginas</li>
+            <li><i class="fas fa-check"></i> Responsive design</li>
+            <li><i class="fas fa-check"></i> SEO básico</li>
+            <li><i class="fas fa-check"></i> Integración redes</li>
+            <li><i class="fas fa-times"></i> E-commerce</li>
+          </ul>
+          <a href="#contact" class="btn primary">Contratar</a>
+        </div>
+        <div class="plan-card">
+          <h3>Premium</h3>
+          <div class="price">$5,499<span>/MX</span></div>
+          <ul class="features">
+            <li><i class="fas fa-check"></i> Diseño premium</li>
+            <li><i class="fas fa-check"></i> Páginas ilimitadas</li>
+            <li><i class="fas fa-check"></i> SEO avanzado</li>
+            <li><i class="fas fa-check"></i> Tienda online</li>
+            <li><i class="fas fa-check"></i> Blog integrado</li>
+            <li><i class="fas fa-check"></i> Soporte 6 meses</li>
+          </ul>
+          <a href="#contact" class="btn secondary">Contratar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section faq fade-in">
+    <div class="container">
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <p class="section-subtitle">Encuentra respuestas a las dudas más comunes</p>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Cuánto tiempo toma desarrollar un sitio web?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico puede estar listo en
+              1-2 semanas, mientras que proyectos más complejos como e-commerce pueden tomar de 4 a 6 semanas.
+              Los plazos son definidos desde el inicio para garantizar la entrega puntual.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Incluyen hosting y dominio en sus planes?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Los planes no incluyen hosting ni dominio, ya que prefiero que mis clientes tengan control
+              total sobre estos elementos. Sin embargo, te puedo asesorar en la compra y configuración, y ofrezco
+              servicio de configuración y despliegue del hosting si lo deseas.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Qué pasa si necesito ayuda después de que mi sitio esté en vivo?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Ofrezco diferentes niveles de soporte post-lanzamiento. Todos los proyectos incluyen 60 días de soporte
+              gratuito para correcciones menores. Después de este período, puedes contratar mi servicio de
+              mantenimiento mensual que incluye actualizaciones, copias de seguridad y soporte técnico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <section class="about-us fade-in" id="about">
-    <h2>Sobre Nosotros</h2>
+    <h2>Sobre mí</h2>
     <div class="about-content">
       <div class="founder-photo">
-        <img src="assets/logo.png" alt="Logo" />
+        <img src="assets/selfie.jpg" alt="Logo" />
       </div>
       <div class="about-text">
         <p>
-          En Muply, nuestra misión es transformar ideas en soluciones tecnológicas innovadoras. 
-          Fundada por el Técnico en Desarrollo de Software Juan P. Nuestra empresa se dedica a ofrecer servicios de desarrollo 
-          de software que impulsan el éxito empresarial.
+          Mi nombre es Juan Poot, desarrollador web con experiencia en crear sitios web atractivos con múltiples
+          tecnologías.
+          Mi misión es transformar ideas en soluciones tecnológicas innovadoras.
         </p>
       </div>
     </div>
   </section>
 
   <section class="contact fade-in" id="contact">
-    <h2>Contáctanos</h2>
-    <p>¡Estamos encantados de escucharte! Completa el formulario y nos contactaremos de inmediato.</p>
+    <h2>Contáctame</h2>
+    <p>¡Estoy encantado de escucharte! Completa el formulario y me contactaré de inmediato.</p>
     <form action="#" method="post" id="contact-form" class="contact-form">
       <div class="form-group">
         <label for="name">Nombre</label>
@@ -105,7 +197,7 @@
       </div>
       <div class="form-group">
         <label for="phone">Teléfono</label>
-        <input type="text" id="phone" name="phone" placeholder="Tu teléfono (opcional)" />
+        <input type="text" id="phone" name="phone" placeholder="Tu teléfono" required />
       </div>
       <div class="form-group">
         <label for="message">Mensaje</label>
@@ -115,14 +207,22 @@
     </form>
     <div id="toast" class="toast"></div>
     <!-- Spinner oculto al inicio -->
-    <div id="loading-spinner" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.7); z-index:9999; display:none; align-items:center; justify-content:center;">
-      <div class="spinner" style="border: 6px solid #f3f3f3; border-top: 6px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+    <div id="loading-spinner"
+      style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.7); z-index:9999; display:none; align-items:center; justify-content:center;">
+      <div class="spinner"
+        style="border: 6px solid #f3f3f3; border-top: 6px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;">
+      </div>
     </div>
 
     <style>
       @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
       }
 
       /* Asegura que el contenedor use flex solo cuando se le aplique por JS */
@@ -136,7 +236,8 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Muply.</p>
+    <p>&copy; 2025 WebPro.</p>
   </footer>
 </body>
+
 </html>
