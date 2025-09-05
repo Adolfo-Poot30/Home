@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
       correo: form.email.value,
       telefono: form.phone.value,
       mensaje: form.message.value,
+      fecha_hora: new Date().toLocaleString()
     };
 
     try {
