@@ -2,238 +2,197 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebPro</title>
-  <script src="script.js"></script>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="assets/logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adolfo Poot Dev</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" href="imagen/japb.png" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/e0408eb5f5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div id="loader"></div>
-  <header class="navbar">
-    <div class="logo">WebPro</div>
-    <nav class="nav-links">
-      <a href="#services">Servicios</a>
-      <a href="#about">Sobre mí</a>
-      <a href="#contact">Contáctame</a>
+    <nav>
+        <img src="imagen/logo.png" alt="logo" class="logo">
+        <ul id="sidemenu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#contacto">Contáctame</a></li>
+            <i class="fa-solid fa-xmark" onclick="cerrarmenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="abrirmenu()"></i>
     </nav>
-  </header>
-  <section class="hero">
-    <div class="hero-content fade-in">
-      <h4>¡Bienvenido!</h4>
-      <h1>Diseño y desarrollo tu sitio web por ti.</h1>
-      <p>Te ayudo a alcanzar el éxito con páginas web profesionales. Mi pasión es la innovación.</p>
-      <div class="hero-buttons">
-        <a class="btn primary" href="#contact">Contáctame</a>
-      </div>
-    </div>
-    <div class="hero-image fade-in">
-      <img src="assets/man-with-laptop.png" alt="Man with laptop" />
-    </div>
-  </section>
 
-  <div class="services-title fade-in">
-    <h2>Servicios</h2>
-  </div>
-  <section class="services fade-in" id="services">
-    <div class="container fade-in">
+    <section id="Home">
+        <div class="text-container animate-on-scroll">
+            <span>¡Hola! Soy </span>
+            <h1>Juan Adolfo Poot</h1>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-laptop-code"></i>
-          <h3>Diseño Web Personalizado</h3>
-          <p>Creación de sitios web únicos y atractivos que reflejan la identidad de tu marca.</p>
+            <a href="https://wa.me/529995865749" target="_blank" class="btn">Contáctame</a>
         </div>
-        <div class="service-card">
-          <i class="fas fa-mobile-alt"></i>
-          <h3>Diseño Responsive</h3>
-          <p>Sitios que se adaptan perfectamente a cualquier dispositivo: móvil, tablet o desktop.</p>
+        <div class="image-container animate-on-scroll">
+            <img src="imagen/foto1.png" alt="Foto" class="foto">
         </div>
-        <div class="service-card">
-          <i class="fas fa-globe"></i>
-          <h3>Aplicaciones Web</h3>
-          <p>Desarrollo aplicaciones web completas con funcionalidades avanzadas.</p>
+    </section>
+
+
+    <section id="about">
+        <div class="container animate-on-scroll">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="imagen/foto2.png" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">Sobre Mí</h1>
+                    <p> Soy un Desarrollador de Software Multiplataforma, me especializo
+                        en el desarrollo web. Me apasiona la tecnología y cada día aprendo
+                        algo nuevo. Cuento con experiencia creando sitios web atractivos con múltiples tecnologías. 
+                        Mi misión es transformar ideas en soluciones tecnológicas innovadoras. </p>
+
+                    <div class="tab-title">
+                        <p class="tab-links active-link" onclick="opentab('habilidades')">Habilidades</p>
+                        <p class="tab-links" onclick="opentab('experiencia')">Experiencia</p>
+                        <p class="tab-links" onclick="opentab('educacion')">Educación</p>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="habilidades">
+                        <ul>
+                            <li><span>Frontend</span><br> Desarrollo de interfaces de usuario (UI) utilizando HTML, CSS
+                                y JavaScript. Especializado en diseño de experiencias atractivas y responsivas.</li>
+                            <li>Desarrollo de aplicaciones web utilizando React.js o vue.js para
+                                construir interfaces interactivas y dinámicas.</li>
+                            <li><span>Backend</span> <br> Desarrollo de APIs y lógica de negocio utilizando
+                                Node.js o Laravel.</li>
+                            <li><span>Base de Datos</span> <br> Diseño y gestión de bases de datos
+                                PostgreSQL y MySQL.</li>
+                            <li><span>Desarrollo Full Stack</span> <br> Integración de frontend y backend para crear
+                                aplicaciones web completas y funcionales.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="experiencia">
+                        <ul>
+                            <li><span>Desarrollo de sistema de control de mantenimientos</span> <br>Desarrollé un sistema para el monitoreo de los estados de mantenimientos de activos fijos, vehículos
+				y herramientas.
+				Principales aportes:<br>
+				<br>● Diseñé e implementé un algoritmo para calcular el estado de mantenimiento (al día,
+				próximo y atrasado) de los activos, basado en los parámetros definidos en los planes de
+				mantenimiento.
+				<br>● Automaticé el envío de alertas por SMS y correo electrónico cada 24 horas, reduciendo
+				tiempos de seguimiento y previniendo retrasos en mantenimientos.
+				<br>● Desarrollé la interfaz de usuario en Vue.js/Vuetify para visualizar estados, vincular planes
+				con activos y actualizar parámetros de mantenimiento.
+				<br>● Implementé un endpoint en Laravel para la consulta de mantenimientos, optimizando el
+				acceso a la información desde el frontend.
+				<br>Tecnologías usadas: PHP Laravel (backend), Vue.js + Vuetify (frontend), PostgreSQL (base de datos)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="educacion">
+                        <ul>
+                            <li><span>Ingeniería en Desarrollo y Gestión de Software</span> <br> UTM | Actualidad</li>
+                            <li><span>Técnico Superior Universitario en Desarrollo de Software Multiplataforma</span> <br> UTM | 2023 - 2025</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="cta fade-in">
-    <div class="cta-text fade-in">
-      <h2>Déjame hacer el trabajo para que tú puedas concentrarte en lo que importa.</h2>
-      <ul class="features">
-        <li><span>✔</span>Agiliza procesos de tu empresa</li>
-        <li class="active"><span>✔</span>Obten presencia en línea</li>
-        <li><span>✔</span>Haz realidad tu idea de software</li>
-      </ul>
-    </div>
-  </section>
+    </section>
+    <!-----------------seccion de servicios---------------------->
 
-  <section id="planes" class="section plans fade-in">
-    <div class="container">
-      <h2 class="section-title">Planes</h2>
-      <p class="section-subtitle">Elige el paquete que mejor se adapte a tus necesidades</p>
+    <section id="servicios">
+        <div class="container animate-on-scroll">
+            <h1 class="sub-title">Mis Servicios</h1>
+            <div class="servicios-list">
+                <div class="servicio-box">
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Desarrollo Web</h2>
+                    <p>
+                        Ofrezco servicios de desarrollo web para crear sitios web modernos y funcionales. Utilizo las
+                        últimas tecnologías y prácticas de desarrollo para construir soluciones adaptadas a las
+                        necesidades de mis clientes, incluyendo HTML, CSS y JavaScript.
+                    </p>
+                </div>
+                <div class="servicio-box">
+                    <i class="fa-brands fa-react"></i>
+                    <h2>Aplicaciones Web</h2>
+                    <p>
+                        Desarrollo aplicaciones web personalizadas utilizando ReactJS para garantizar una experiencia de
+                        usuario fluida y dinámica.
+                    </p>
+                </div>
 
-      <div class="plans-grid">
-        <div class="plan-card">
-          <h3>Básico</h3>
-          <div class="price">$2,499<span>MX</span></div>
-          <ul class="features">
-            <li><i class="fas fa-check"></i> Diseño personalizado</li>
-            <li><i class="fas fa-check"></i> 5 páginas (o secciones)</li>
-            <li><i class="fas fa-check"></i> Responsive design</li>
-            <li><i class="fas fa-check"></i> SEO básico</li>
-            <li><i class="fas fa-times"></i> Formulario de contacto</li>
-            <li><i class="fas fa-times"></i> Integración de redes sociales</li>
-          </ul>
-          <a href="#contact" class="btn secondary">Contratar</a>
+            </div>
         </div>
-        <div class="plan-card featured">
-          <div class="popular">Más Popular</div>
-          <h3>Profesional</h3>
-          <div class="price">$3,499<span>MX</span></div>
-          <ul class="features">
-            <li><i class="fas fa-check"></i> Diseño personalizado</li>
-            <li><i class="fas fa-check"></i> Hasta 10 páginas (o secciones)</li>
-            <li><i class="fas fa-check"></i> Responsive design</li>
-            <li><i class="fas fa-check"></i> SEO básico</li>
-            <li><i class="fas fa-check"></i> Formulario de contacto</li>
-            <li><i class="fas fa-times"></i> Integración de redes sociales</li>
-          </ul>
-          <a href="#contact" class="btn primary">Contratar</a>
+    </section>
+    <!-----------------seccion de portafolio---------------------->
+    <section id="portafolio">
+        <div class="container animate-on-scroll">
+            <h1 class="sub-title">Portafolio</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="imagen/correo.jpg" alt="Lista de tareas">
+                    <div class="layer">
+                        <h3>Módulo para ERP</h3>
+                        <p>Sistema de control de mantenimientos de activos, desarrollado con Vue.js y Vuetify. Backend Contruido con Laravel.</p>
+                        <a href="mantenimiento.html"><i
+                                class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="imagen/memboo.png" alt="App para Clima">
+                    <div class="layer">
+                        <h3>Memboo - POS</h3>
+                        <p>Aplicación web de punto de venta más gestión de clientes con membresias. Actualmente se encuentra en desarrollo con React.</p>
+                        <a href="memboo.html"><i
+                                class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <img src="imagen/web-pro.png" alt="Tienda en Línea">
+                    <div class="layer">
+                        <h3>Servicios de desarrollo</h3>
+                        <p>Página para ofrecer servicios de desarrollo web. Construido con html, css y JavaScript.</p>
+                        <a href="https://web-pro-two.vercel.app/"  target="_blank"><i
+                                class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="plan-card">
-          <h3>Premium</h3>
-          <div class="price">$4,499<span>MX</span></div>
-          <ul class="features">
-            <li><i class="fas fa-check"></i> Diseño personalizado</li>
-            <li><i class="fas fa-check"></i> Hasta 15 páginas (o secciones)</li>
-            <li><i class="fas fa-check"></i> Responsive design</li>
-            <li><i class="fas fa-check"></i> SEO avanzado</li>
-            <li><i class="fas fa-check"></i> Formulario de contacto</li>
-            <li><i class="fas fa-check"></i> Integración de redes sociales</li>
-          </ul>
-          <a href="#contact" class="btn secondary">Contratar</a>
+    </section>
+    <!-----------------seccion de contacto---------------------->
+    <section id="contacto">
+        <div class="container animate-on-scroll">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contáctame</h1>
+                    <div class="social-icons">
+                        <a href="https://wa.me/529995865749" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/juan-adolfo-poot-93b4bb271" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+			<a href="mailto:juanadolfopootbalam1@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+			<a href="https://github.com/Adolfo-Poot30" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <a class="btn btn2" href="CV_Poot_Juan.pdf" target="_blank">Ver CV</a>
+
+                </div>
+                <div class="contact-right">
+                    <form action="#" method="post" id="contact-form" class="contact-form">
+                        <input type="text" id="name" placeholder="Tu nombre" required>
+                        <input type="email" id="email" placeholder="Tu correo" required>
+			<input type="text" id="phone" placeholder="Tu teléfono" required>
+                        <textarea id="message" rows="6" placeholder="Tu mensaje" required></textarea>
+                        <button type="submit" class="btn btn2">Enviar</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <p class="section-subtitle">*Los planes se aplican para sitios webs estáticos, para aplicaciones web más complejos, los precios dependen del número de funcionalidades y requerimientos.</p>
-  <!-- Portafolio Section -->
-  <section id="portafolio" class="section portfolio">
-    <div class="container">
-      <h2 class="section-title">Portafolio</h2>
-      <p class="section-subtitle">Algunos ejemplos de sitios que puedo desarrollar</p>
-
-      <div class="portfolio-grid">
-        <a href="belleza/index.html" class="portfolio-item">
-          <div class="portfolio-img"
-            style="background-image: url('assets/belleza.png');">
-          </div>
-          <div class="portfolio-info">
-            <h3>Sitio Para Salón de belleza</h3>
-            <p>Diseño moderno para salones de belleza</p>
-          </div>
-        </a>
-
-        <a href="hoteles-main/index.html" class="portfolio-item">
-          <div class="portfolio-img"
-            style="background-image: url('assets/hotel.png');">
-          </div>
-          <div class="portfolio-info">
-            <h3>Sitio para Hoteles</h3>
-            <p>Sitio moderno para hoteles</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="section faq fade-in">
-    <div class="container">
-      <h2 class="section-title">Preguntas Frecuentes</h2>
-      <p class="section-subtitle">Encuentra respuestas a las dudas más comunes</p>
-
-      <div class="faq-accordion">
-        <div class="faq-item">
-          <button class="faq-question">
-            ¿Cuánto tiempo toma desarrollar un sitio web?
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico puede estar listo hasta en una semana, mientras que proyectos más complejos como e-commerce pueden tomar de 4 a 6 semanas.
-              Los plazos son definidos desde el inicio para garantizar la entrega puntual.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            ¿Incluyen hosting y dominio en sus planes?
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Los planes no incluyen hosting ni dominio, ya que prefiero que mis clientes tengan control
-              total sobre estos elementos. Sin embargo, te puedo asesorar en la compra y configuración, y ofrezco
-              servicio gratuito de configuración y despliegue del hosting si lo deseas.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            ¿Qué pasa si necesito ayuda después de que mi sitio esté en vivo?
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Ofrezco diferentes niveles de soporte post-lanzamiento. Todos los proyectos incluyen 60 días de soporte
-              gratuito para correcciones menores. Después de este período, puedes contratar mi servicio de
-              mantenimiento mensual que incluye actualizaciones, copias de seguridad y soporte técnico.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="about-us fade-in" id="about">
-    <h2>Sobre mí</h2>
-    <div class="about-content">
-      <div class="founder-photo">
-        <img src="assets/selfie.jpg" alt="Logo" />
-      </div>
-      <div class="about-text">
-        <p>
-          Mi nombre es Adolfo Poot, desarrollador web con experiencia en crear sitios web atractivos con múltiples
-          tecnologías.
-          Mi misión es transformar ideas en soluciones tecnológicas innovadoras.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact fade-in" id="contact">
-    <h2>Contáctame</h2>
-    <p>¡Estoy encantado de escucharte! Completa el formulario y me contactaré de inmediato.</p>
-    <form action="#" method="post" id="contact-form" class="contact-form">
-      <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" placeholder="Tu nombre" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Correo</label>
-        <input type="email" id="email" name="email" placeholder="Tu correo" required />
-      </div>
-      <div class="form-group">
-        <label for="phone">Teléfono</label>
-        <input type="text" id="phone" name="phone" placeholder="Tu teléfono" required />
-      </div>
-      <div class="form-group">
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="btn primary">Enviar mensaje</button>
-    </form>
     <div id="toast" class="toast"></div>
     <!-- Spinner oculto al inicio -->
     <div id="loading-spinner"
@@ -262,18 +221,16 @@
       }
     </style>
 
-  </section>
+        <div class="copyright animate-on-scroll" id="yearCopyright">
 
-  <footer>
-    <p>&copy; 2025 WebPro/Adolfo Poot.</p>
-    <div>
-      <a href="https://github.com/Adolfo-Poot30" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/juan-adolfo-poot-93b4bb271" target="_blank">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-  </footer>
+            <p>&copy; <span id="currentYear"></span> Juan Adolfo Poot Balam</p>
+
+        </div>
+
+    </section>
+
+    <script src="app.js"></script>
+
 </body>
+
 </html>

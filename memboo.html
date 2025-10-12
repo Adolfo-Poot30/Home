@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería</title>
+  <!-- Google Fonts para Material Design -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="imagen/japb.png" type="image/x-icon" />
+  <style>
+    /* Reset básico */
+	.gallery-description {
+	  text-align: center;
+	  margin-bottom: 24px;
+	}
+
+	.gallery-description h2 {
+	  font-weight: 500;
+	  font-size: 2rem;
+	  margin-bottom: 8px;
+	  color: #03dac6;
+	}
+
+	.gallery-description p {
+	  font-size: 1rem;
+	  color: #ccc;
+	  max-width: 600px;
+	  margin: 0 auto;
+	}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 16px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #03dac6;
+    }
+
+    main {
+      flex: 1;
+      padding: 24px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      background-color: #1f1f1f;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 8px;
+      }
+    }
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9);
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+  }
+
+  #caption {
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .close:hover {
+    color: #03dac6;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Memboo - POS | Galería</h1>
+  </header>
+
+  <main>
+  <section class="gallery-description">
+    <p style="text-align: justify;">El proyecto se encuentra en fase de desarrollo y consiste en un punto de venta en línea, en donde, adicionalmente, los negocios que manejen clientes con membresias, desde la misma plataforma podrán gestionar esas membresias. Se está usando React para las interfaces y se usará Laravel para construir el backend.</p>
+  </section>
+    <div class="gallery">
+      <div class="gallery-item"><img src="imagen/memboo.png" alt="Memboo"></div>
+      <div class="gallery-item"><img src="imagen/4.png" alt="Foto 1"></div>
+      <div class="gallery-item"><img src="imagen/5.png" alt="Foto 2"></div>
+      <div class="gallery-item"><img src="imagen/6.png" alt="Foto 3"></div>
+      <div class="gallery-item"><img src="imagen/7.png" alt="Foto 4"></div>
+      <div class="gallery-item"><img src="imagen/8.png" alt="Foto 5"></div>
+      <div class="gallery-item"><img src="imagen/9.png" alt="Foto 6"></div>
+      <div class="gallery-item"><img src="imagen/10.png" alt="Foto 7"></div>
+      <div class="gallery-item"><img src="imagen/11.png" alt="Foto 8"></div>
+      <div class="gallery-item"><img src="imagen/12.png" alt="Foto 9"></div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Juan Adolfo Poot Balam.
+  </footer>
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+    <div id="caption"></div>
+  </div>
+</body>
+<script>
+  // Modal
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const captionText = document.getElementById("caption");
+  const closeBtn = document.getElementsByClassName("close")[0];
+
+  // Selecciona todas las imágenes de la galería
+  const galleryItems = document.querySelectorAll(".gallery-item img");
+  galleryItems.forEach(img => {
+    img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+  });
+
+  // Cerrar el modal
+  closeBtn.onclick = function() { 
+    modal.style.display = "none";
+  }
+
+  // Cerrar al hacer click fuera de la imagen
+  modal.onclick = function(event) {
+    if(event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+</html>
