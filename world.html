@@ -513,27 +513,65 @@
         window.addEventListener('resize', () => {
              tooltip.style.opacity = '0';
         });
-document.addEventListener("DOMContentLoaded", () => {
-  const map = document.getElementById("mexicoMapSvg");
-  if (!map) return;
+	document.addEventListener("DOMContentLoaded", () => {
+	  const map = document.getElementById("mexicoMapSvg");
+	  if (!map) return;
 
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
+	  // Función para obtener offset horizontal según ancho de pantalla
+	  function getOffsetX() {
+	    if (window.innerWidth <= 480) return 25;   // móvil pequeño
+	    if (window.innerWidth <= 768) return 40;   // tablet
+	    return 75;                                 // desktop
+	  }
 
-    // Ajusta el offset según el ancho de pantalla
-    let offsetX;
-    if (window.innerWidth <= 480) {
-      offsetX = 25; // móvil pequeño
-    } else if (window.innerWidth <= 768) {
-      offsetX = 40; // tablet
-    } else {
-      offsetX = 75; // desktop
-    }
+	  const translateYFactor = 0.05;   // movimiento vertical
+	  const maxZoom = 1.1;            // zoom máximo
+	  const triggerPercent = 0.25;      // cuando el 70% de la card entra en pantalla
+	  let ticking = false;
 
-    const limitedScale = 1 + scrollY * 0.001; // tu lógica de zoom
-    map.style.transform = `scale(${limitedScale}) translateX(${offsetX / limitedScale}px) translateY(${scrollY * 0.05}px)`;
-  });
-});
+	  function updateZoom() {
+	    const mapRect = map.getBoundingClientRect();
+	    const windowHeight = window.innerHeight;
+	    const offsetX = getOffsetX();
+
+	    // Determina el progreso del zoom: de 0 (inicio) a 1 (cuando 70% de la card ha aparecido)
+	    const triggerPoint = windowHeight * triggerPercent;
+	    let progress = 0;
+
+	    if (mapRect.top < triggerPoint && mapRect.bottom > 0) {
+	      // Calcula porcentaje relativo al trigger
+	      progress = (triggerPoint - mapRect.top) / (triggerPoint);
+	      if (progress > 1) progress = 1;
+	      if (progress < 0) progress = 0;
+	    }
+
+	    // Calcula el zoom suave entre 1 y maxZoom
+	    const limitedScale = 1 + (maxZoom - 1) * progress;
+
+	    // Aplica transform combinando zoom y desplazamientos
+	    map.style.transform = `scale(${limitedScale}) translateX(${offsetX / limitedScale}px) translateY(${mapRect.top * translateYFactor}px)`;
+
+	    ticking = false;
+	  }
+
+	  window.addEventListener("scroll", () => {
+	    if (!ticking) {
+	      window.requestAnimationFrame(updateZoom);
+	      ticking = true;
+	    }
+	  });
+
+	  window.addEventListener("resize", () => {
+	    // recalcula offsetX en el próximo scroll
+	    if (!ticking) {
+	      window.requestAnimationFrame(updateZoom);
+	      ticking = true;
+	    }
+	  });
+
+	  // Inicializa posición al cargar
+	  updateZoom();
+	});
 </script>
 </body>
 </html>
