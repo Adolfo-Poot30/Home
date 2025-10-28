@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de México: Inversión en Condominios (32 Estados)</title>
+    <title>Mapa de México</title>
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -28,30 +28,21 @@
             width: 100%;
 	    height: auto; 
 	    max-height: 800px;
-            /* Controla la altura vertical en función del ancho (adapta la card al mapa) */
             aspect-ratio: 10 / 15; 
-            
-            /* Más redondeado para un estilo de "card" moderno */
             border-radius: 1.5rem; 
-            overflow: hidden;
-            
-            /* 2. Fondo oscuro con degradados para la card */
-            background: linear-gradient(145deg, #020617 0%, #172554 100%); /* Azul oscuro profundo a negro */
-            
-            /* 3. Sombra moderna y con brillo sutil (azul/púrpura) */
+            overflow: hidden;            
+            background: linear-gradient(145deg, #020617 0%, #172554 100%); 
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 100px rgba(79, 70, 229, 0.2); 
             transition: transform 0.3s ease;
-            
-            /* Agregar margen inferior para separar la card del fondo */
             margin-bottom: 20px;
 	    display: flex;
 	    justify-content: center;
-	    align-items: flex-start; /* evita que se suba */
+	    align-items: flex-start; 
 	    padding-top: 30px; 
         }
 	@media (max-width: 768px) {
 	  .map-container {
-	    max-height: 320px; /* 🔹 más razonable para móviles */
+	    max-height: 320px; 
 	    padding: 6px;
 	  }
 	}
@@ -61,17 +52,14 @@
 	    max-height: 200px;
 	  }
 	}
-        
-        /* 4. Centrado visual y padding para el SVG */
 	#mexicoMapSvg {
 	  display: block;
-	  width: 100%;       /* tamaño relativo a la card */
-	  height: auto;     /* mantiene la proporción */
+	  width: 100%;       
+	  height: auto;    
 	  transition: all 0.3s ease;
 	  will-change: transform;
 	  transform-origin: center center;
-	  margin: 0 auto;   /* margen horizontal centrado */
-	  transform: translateX(75px);
+	  margin: 0 auto;  
 	}
 	@media (max-width: 768px) {
 	  #mexicoMapSvg {
@@ -85,11 +73,9 @@
 	  }
 	}
 
-        /* Estilo base para los 32 estados */
         .land {
-            /* 5. Color del mapa más claro para contrastar con el fondo oscuro de la card */
-            fill: #374151; /* Gris oscuro/Slate 700 */
-            stroke: #1e293b; /* Borde muy oscuro */
+            fill: #374151; 
+            stroke: #1e293b;
             stroke-width: 0.8;
             stroke-opacity: 0.5; 
             cursor: pointer;
@@ -97,35 +83,34 @@
             opacity: 0.95;
         }
         
-        /* Efecto de mouseover */
         .land:hover {
             opacity: 1;
             filter: brightness(1.6);
-            fill: #60a5fa; /* Color vibrante al hacer hover */
+            fill: #60a5fa;
         }
 
-        /* Estilo de las líneas de conexión animadas (Flujo de Inversión) */
-        .animated-line {
-            stroke-dasharray: 120;
-            stroke-dashoffset: 120;
-            animation: dash 6s linear infinite;
-            stroke-width: 3;
-            fill: none;
-            opacity: 0.9;
-            stroke: #fcd34d; /* Amarillo vibrante para el flujo */
-            filter: drop-shadow(0 0 4px rgba(252, 211, 77, 0.9));
-            stroke-linecap: round;
-        }
-        
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
+	.animated-line {
+	  stroke-width: 3;
+	  fill: none;
+	  opacity: 0.9;
+	  stroke: #fcd34d;
+	  filter: drop-shadow(0 0 4px rgba(252, 211, 77, 0.9));
+	  stroke-linecap: round;
+	  transition: stroke 0.3s;
+	}
 
-        /* Puntos de interés (Hubs) */
+	.animated-line.animate {
+	  animation: dash 4s linear forwards;
+	}
+
+	@keyframes dash {
+	  to {
+	    stroke-dashoffset: 0;
+	  }
+	}
+
         .hub-point {
-            fill: #ef4444; /* Rojo para Hubs principales */
+            fill: #ef4444; 
             transition: all 0.3s;
             r: 6;
             filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.8));
@@ -143,10 +128,9 @@
         }
 
 
-        /* Tooltip - Mejor contraste en tema oscuro */
         #mapTooltip {
             position: absolute;
-            background-color: #1f2937; /* Gris oscuro para el tooltip */
+            background-color: #1f2937;
             color: #fff;
             padding: 10px 14px;
             border-radius: 8px;
@@ -157,7 +141,7 @@
             transition: opacity 0.1s;
             white-space: nowrap;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-            border: 1px solid #4f46e5; /* Borde morado para destacar */
+            border: 1px solid #4f46e5; 
         }
     </style>
 </head>
@@ -284,20 +268,33 @@
 
 	<g id="connections">
 	    <!-- GDL → Veracruz -->
-	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 0s;" 
+	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 2s;" 
 		  d="M 375 400 L 510 390" />
 
 	    <!-- GDL → Mérida -->
-	    <path class="animated-line" style="stroke: #4f46e5; animation-delay: 1.5s;" 
+	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 2s;" 
 		  d="M 375 400 L 725 387" />
 
 	    <!-- GDL → CDMX -->
-	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 3s;" 
+	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 2s;" 
 		  d="M 375 400 L 488 436" />
 
 	    <!-- GDL -> Monterrey -->
-	    <path class="animated-line" style="stroke: #4f46e5; animation-delay: 4.5s; opacity: 0.6;" 
+	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 2s;" 
 		  d="M 375 400 L 450 280" />
+
+	    <!-- GDL -> CD Victoria -->
+	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 2s;" 
+		  d="M 375 400 L 483 310" />
+
+ 	    <!-- GDL -> Campeche -->
+	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 2s;" 
+		  d="M 375 400 L 685 440" />
+ 	    <!-- GDL -> Q. Roo -->
+	    <path class="animated-line" style="stroke: #06b6d4; animation-delay: 2s;" 
+		  d="M 375 400 L 755 445" />
+
+
 	</g>
 
 	<g id="hubs">
@@ -306,20 +303,33 @@
 	    <circle cx="488" cy="436" r="6" class="hub-point" data-location="Ciudad de México - CDMX" />
 
 	    <!-- Veracruz -->
-	    <circle cx="510" cy="390" r="15" class="hub-pulse-ring" style="animation-delay: 0.5s;" />
+	    <circle cx="510" cy="390" r="15" class="hub-pulse-ring" style="animation-delay: 2s;" />
 	    <circle cx="510" cy="390" r="6" class="hub-point" data-location="Veracruz - VER" />
 
 	    <!-- Guadalajara -->
-	    <circle cx="375" cy="400" r="15" class="hub-pulse-ring" style="animation-delay: 1s;" />
+	    <circle cx="375" cy="400" r="15" class="hub-pulse-ring" style="animation-delay: 2s;" />
 	    <circle cx="375" cy="400" r="6" class="hub-point" data-location="Guadalajara - JAL" />
 
 	    <!-- Monterrey -->
 	    <circle cx="450" cy="280" r="15" class="hub-pulse-ring" style="animation-delay: 2s;" />
 	    <circle cx="450" cy="280" r="6" class="hub-point" data-location="Monterrey - NL" />
 
+	    <!-- CD. Victoria -->
+	    <circle cx="483" cy="310" r="15" class="hub-pulse-ring" style="animation-delay: 2s;" />
+	    <circle cx="483" cy="310" r="6" class="hub-point" data-location="CD Victoria - Tam" />
+
 	    <!-- Mérida -->
-	    <circle cx="725" cy="387" r="15" class="hub-pulse-ring" style="animation-delay: 2.5s;" />
+	    <circle cx="725" cy="387" r="15" class="hub-pulse-ring" style="animation-delay: 2s;" />
 	    <circle cx="725" cy="387" r="6" class="hub-point" data-location="Mérida - YUC" />
+
+            <!-- Campeche -->
+	    <circle cx="685" cy="440" r="15" class="hub-pulse-ring" style="animation-delay: 2s;" />
+	    <circle cx="685" cy="440" r="6" class="hub-point" data-location="Camp - CAM" />
+
+            <!-- Chetumal -->
+	    <circle cx="755" cy="445" r="15" class="hub-pulse-ring" style="animation-delay: 2s;" />
+	    <circle cx="755" cy="445" r="6" class="hub-point" data-location="Chet - Q. ROO" />
+
 	</g>
         </svg>
     </div>
@@ -370,10 +380,64 @@
     </div>
 
 
-    <!-- Lógica de JavaScript -->
     <script type="module">
-        
-        const mapContainer = document.getElementById("mapContainer");
+	window.addEventListener('load', () => {
+	  const map = document.querySelector(".map-container"); // contenedor del mapa
+	  const lines = document.querySelectorAll(".animated-line");
+
+	  // Inicializa cada línea
+	  const initLines = () => {
+	    lines.forEach(line => {
+	      const length = line.getTotalLength();
+	      line.style.strokeDasharray = length;
+	      line.style.strokeDashoffset = length;
+	    });
+	  };
+
+	  initLines();
+
+	  // Función para animar las líneas
+	  const animateLines = () => {
+	    lines.forEach((line, i) => {
+	      const length = line.getTotalLength();
+
+	      // Reinicia el trazo
+	      line.style.strokeDasharray = length;
+	      line.style.strokeDashoffset = length;
+
+	      // Eliminar clase y forzar reflow para reiniciar la animación
+	      line.classList.remove("animate");
+	      void line.offsetWidth;
+
+	      // Inicia animación con retraso escalonado
+	      setTimeout(() => {
+		line.classList.add("animate");
+
+		// Cuando termina la animación, ocultamos la línea
+		const onAnimationEnd = () => {
+		  line.classList.remove("animate");
+		  line.style.strokeDashoffset = length;
+		  line.removeEventListener("animationend", onAnimationEnd);
+		};
+
+		line.addEventListener("animationend", onAnimationEnd);
+
+	      }, i * 150); // 150ms entre líneas
+	    });
+	  };
+
+	  // Observador: se activa cada vez que el mapa entra al viewport
+	  const observer = new IntersectionObserver((entries) => {
+	    entries.forEach(entry => {
+	      if (entry.isIntersecting) {
+		animateLines(); // se ejecuta cada vez que entra
+	      }
+	    });
+	  }, { threshold: 0.3 });
+
+	  observer.observe(map);
+	});
+	const mapContainer = document.getElementById("mapContainer");
         const tooltip = document.getElementById("mapTooltip");
         const svgDoc = document.getElementById("mexicoMapSvg");
         // Cambiamos a .land
@@ -407,76 +471,86 @@
 	  "MX-YUC": { name: "Yucatán", status: "available" },
 	  "MX-ROO": { name: "Quintana Roo", status: "available" },
 
-	  // Estados no incluidos en la lista → "not-available"
-	  "MX-CHH": { name: "Chihuahua", status: "not-available" },
-	  "MX-MOR": { name: "Morelos", status: "not-available" },
-	  "MX-PUE": { name: "Puebla", status: "not-available" },
-	  "MX-TLA": { name: "Tlaxcala", status: "not-available" },
-	  "MX-GRO": { name: "Guerrero", status: "not-available" },
-	  "MX-OAX": { name: "Oaxaca", status: "not-available" },
-	  "MX-CHP": { name: "Chiapas", status: "not-available" },
-	  "MX-TAB": { name: "Tabasco", status: "not-available" }
+	  // Estados no incluidos en la lista
+	  "MX-CHH": { name: "Chihuahua", status: "coming-soon" },
+	  "MX-MOR": { name: "Morelos", status: "coming-soon" },
+	  "MX-PUE": { name: "Puebla", status: "coming-soon" },
+	  "MX-TLA": { name: "Tlaxcala", status: "coming-soon" },
+	  "MX-GRO": { name: "Guerrero", status: "coming-soon" },
+	  "MX-OAX": { name: "Oaxaca", status: "coming-soon" },
+	  "MX-CHP": { name: "Chiapas", status: "coming-soon" },
+	  "MX-TAB": { name: "Tabasco", status: "coming-soon" }
 	};
 
 
         const STATUS_CONFIG = {
-            "available": { color: "#315AED", label: "Disponible ✅" }, // Teal 500
-            "coming-soon": { color: "#7089B8", label: "Próximamente ⏳" }, // Amber 500
-            "not-available": { color: "#315AED", label: "No disponible ❌" }, // Red 500
+            "available": { color: "#315AED", hoverColor: "#34D399", label: "Disponible ✅" }, 
+            "coming-soon": { color: "#315AED", hoverColor: "#93C5FD", label: "Próximamente ⏳" }, 
+            "not-available": { color: "#315AED", label: "No disponible ❌" }, 
             "default": { color: "##7089B8", label: "" }
         };
 
         function initializeMap() {
             // Iterar sobre los estados
-            states.forEach(state => {
-                const id = state.id;
-                const info = availabilityData[id] || { name: state.getAttribute('title') || id, status: "default" };
-                const config = STATUS_CONFIG[info.status] || STATUS_CONFIG.default;
+	states.forEach(state => {
+	    const id = state.id;
+	    const info = availabilityData[id] || { name: state.getAttribute('title') || id, status: "default" };
+	    const config = STATUS_CONFIG[info.status] || STATUS_CONFIG.default;
 
-                // Aplicar colores
-                state.style.fill = config.color;
+	    // Aplicar color inicial
+	    state.style.fill = config.color;
 
-                // Configurar Tooltip para los Estados (al pasar el mouse sobre la geometría)
-                const showStateTooltip = (e) => {
-                    tooltip.style.opacity = 1;
-                    tooltip.style.backgroundColor = '#1e293b'; 
-                    tooltip.style.border = `1px solid ${config.color}`; 
-                    tooltip.innerHTML = `
-                        <div class="text-sm font-semibold text-white">${info.name}</div>
-                        <div class="text-xs mt-1" style="color: ${config.color};">${config.label}</div>
-                    `;
-                    
-                    // Posicionamiento
-                    const containerRect = mapContainer.getBoundingClientRect();
-                    let x = e.clientX - containerRect.left;
-                    let y = e.clientY - containerRect.top;
-                    
-                    tooltip.style.left = x + 15 + "px"; 
-                    tooltip.style.top = y + 15 + "px";
-                };
+	    // Guardar color original para restaurarlo
+	    const originalColor = config.color;
 
-                const hideTooltip = () => {
-                    tooltip.style.opacity = 0;
-                };
-                
-                state.addEventListener("mousemove", showStateTooltip);
-                state.addEventListener("mouseleave", hideTooltip);
-                
-                // Touch events
-                state.addEventListener("touchstart", (e) => {
-                    e.preventDefault();
-                    showStateTooltip(e.touches[0]);
-                });
-            });
+	    // Tooltip
+	    const showStateTooltip = (e) => {
+		tooltip.style.opacity = 1;
+		tooltip.style.backgroundColor = '#1e293b';
+		tooltip.style.border = `1px solid ${config.color}`;
+		tooltip.innerHTML = `
+		    <div class="text-sm font-semibold text-white">${info.name}</div>
+		    <div class="text-xs mt-1" style="color: ${config.color};">${config.label}</div>
+		`;
+		const containerRect = mapContainer.getBoundingClientRect();
+		let x = e.clientX - containerRect.left;
+		let y = e.clientY - containerRect.top;
+		tooltip.style.left = x + 15 + "px";
+		tooltip.style.top = y + 15 + "px";
+	    };
+	    const hideTooltip = () => tooltip.style.opacity = 0;
 
+	    state.addEventListener("mousemove", showStateTooltip);
+	    state.addEventListener("mouseleave", hideTooltip);
 
-            // Configurar Tooltip para los Hubs (puntos de interés)
+	    // Zoom al pasar cursor
+	    state.style.transition = "transform 0.8s ease-in-out, fill 0.3s ease"; // <-- agregamos fill
+	    state.style.transformOrigin = "center";
+
+	    state.addEventListener("mouseenter", () => {
+		state.parentNode.appendChild(state);
+		state.style.transform = "scale(1.05)";
+		state.style.fill = config.hoverColor || "#34D399"; // <-- color al pasar
+	    });
+
+	    state.addEventListener("mouseleave", () => {
+		state.style.transform = "scale(1)";
+		state.style.fill = originalColor; // <-- vuelve al color original
+	    });
+
+	    state.addEventListener("touchstart", (e) => {
+		e.preventDefault();
+		showStateTooltip(e.touches[0]);
+	    });
+        });
+	
+
             hubPoints.forEach(point => {
                 const location = point.getAttribute('data-location');
 
                 const showHubTooltip = (e) => {
                     tooltip.style.opacity = '1';
-                    tooltip.style.backgroundColor = '#4f46e5'; // Color de hub
+                    tooltip.style.backgroundColor = '#4f46e5'; 
                     tooltip.style.border = `1px solid #4f46e5`;
                     tooltip.innerHTML = `<div class="text-sm font-semibold text-white">${location}</div>`;
                     
@@ -578,11 +652,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Configuración
   let userZoom = 1;              // zoom del usuario
-  let scrollZoom = 1;            // zoom automático por scroll
+  let scrollZoom = 1.2;            // zoom automático por scroll
   const maxUserZoom = 2;         // máximo zoom interactivo
   const minUserZoom = 0.5;       // mínimo zoom interactivo
   const maxScrollZoom = 1.05;    // máximo zoom por scroll
-  const zoomStep = 0.05;         // incremento/decremento por wheel
+  const zoomStep = 0.1;         // incremento/decremento por wheel
   const translateYFactor = 0.05; // movimiento vertical con scroll
   const triggerPercent = 0.25;    // porcentaje de la card visible para iniciar zoom
 
