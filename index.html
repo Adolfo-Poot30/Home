@@ -1,236 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adolfo Poot Dev</title>
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="icon" href="imagen/japb.png" type="image/x-icon" />
-    <script src="https://kit.fontawesome.com/e0408eb5f5.js" crossorigin="anonymous"></script>
-</head>
+    <title>Adolfo Poot - Desarrollador de Software</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<body>
-    <nav>
-        <img src="imagen/logo.png" alt="logo" class="logo">
-        <ul id="sidemenu">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#portafolio">Portafolio</a></li>
-            <li><a href="#contacto">Contáctame</a></li>
-            <i class="fa-solid fa-xmark" onclick="cerrarmenu()"></i>
-        </ul>
-        <i class="fa-solid fa-bars" onclick="abrirmenu()"></i>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="imagen/japb.png" type="image/x-icon" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .navbar-glass {
+            background-color: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform; 
+        }
+        
+        .animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delays para la animación de carga de Hero */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        /* ---- Fin de Estilos de Animación ---- */
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+
+    <!-- ==== Barra de Navegación ==== -->
+    <nav class="navbar-glass sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo o Nombre -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-white">Adolfo Poot</a>
+                </div>
+                
+                <!-- Links de Navegación (Desktop) -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#sobre-mi" class="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Sobre Mí</a>
+                        <a href="#habilidades" class="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Habilidades</a>
+                        <a href="#proyectos" class="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Proyectos</a>
+                        <a href="#contacto" class="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contacto</a>
+                        <a href="CV_Poot_Juan.pdf" target="_blank" rel="noopener noreferrer" class="ml-4 text-cyan-400 border border-cyan-400 px-3 py-1.5 rounded-md text-sm font-medium transition duration-300 hover:bg-cyan-400 hover:text-gray-900">
+                            Ver CV
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg id="icon-burger" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden hidden" id="mobile-menu-container">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#sobre-mi" class="mobile-menu-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sobre Mí</a>
+                <a href="#habilidades" class="mobile-menu-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Habilidades</a>
+                <a href="#proyectos" class="mobile-menu-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Proyectos</a>
+                <a href="#contacto" class="mobile-menu-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+                <a href="CV_Poot_Juan.pdf" target="_blank" rel="noopener noreferrer" class="mobile-menu-link text-cyan-400 hover:bg-gray-700 hover:text-cyan-300 block px-3 py-2 rounded-md text-base font-medium">Ver CV</a>
+            </div>
+        </div>
     </nav>
 
-    <section id="Home">
-        <div class="text-container animate-on-scroll">
-            <span>¡Hola! Soy </span>
-            <h1>Juan Adolfo Poot</h1>
-
-            <a href="https://wa.me/529995865749" target="_blank" class="btn">Contáctame</a>
+    <!-- ==== Sección Hero (Introducción) ==== -->
+    <header class="min-h-screen flex items-center justify-center text-center px-4 pt-16 pb-20 overflow-hidden">
+        <div class="max-w-4xl">
+            <!-- CLASES DE ANIMACIÓN AÑADIDAS -->
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 animate-on-scroll delay-100">
+                <span class="block mb-2">¡Hola! Soy</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-500">Adolfo Poot</span>
+            </h1>
+            <p class="text-2xl sm:text-3xl text-gray-300 mb-8 max-w-2xl mx-auto animate-on-scroll delay-200">
+                Desarrollador de Software
+            </p>
+            <p class="text-lg text-gray-400 mb-10 max-w-xl mx-auto animate-on-scroll delay-300">
+                Creando soluciones web modernas, eficientes y atractivas desde cero.
+            </p>
+            <a href="#proyectos" class="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg animate-on-scroll delay-300">
+                Ver mis proyectos
+            </a>
         </div>
-        <div class="image-container animate-on-scroll">
-            <img src="imagen/foto1.png" alt="Foto" class="foto">
-        </div>
-    </section>
+    </header>
 
-
-    <section id="about">
-        <div class="container animate-on-scroll">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="imagen/foto2.png" alt="">
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">Sobre Mí</h1>
-                    <p> Soy un Desarrollador de Software Multiplataforma, me especializo
-                        en el desarrollo web. Me apasiona la tecnología y cada día aprendo
-                        algo nuevo. Cuento con experiencia creando sitios web atractivos con múltiples tecnologías. 
-                        Mi misión es transformar ideas en soluciones tecnológicas innovadoras. </p>
-
-                    <div class="tab-title">
-                        <p class="tab-links active-link" onclick="opentab('habilidades')">Habilidades</p>
-                        <p class="tab-links" onclick="opentab('experiencia')">Experiencia</p>
-                        <p class="tab-links" onclick="opentab('educacion')">Educación</p>
+    <main>
+        <!-- ==== Sección Sobre Mí ==== -->
+        <section id="sobre-mi" class="py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-cyan-400 animate-on-scroll">
+                    Sobre Mí
+                </h2>
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="flex-shrink-0 animate-on-scroll">
+                        <img class="h-48 w-48 sm:h-64 sm:w-64 rounded-full object-cover shadow-xl" 
+                             src="imagen/foto2.png" 
+                             alt="Foto de perfil de [Tu Nombre]">
                     </div>
-
-                    <div class="tab-contents active-tab" id="habilidades">
-                        <ul>
-                            <li><span>Frontend</span><br> Desarrollo de interfaces de usuario (UI) utilizando HTML, CSS
-                                y JavaScript. Especializado en diseño de experiencias atractivas y responsivas.</li>
-                            <li>Desarrollo de aplicaciones web utilizando React.js o vue.js para
-                                construir interfaces interactivas y dinámicas.</li>
-                            <li><span>Backend</span> <br> Desarrollo de APIs y lógica de negocio utilizando
-                                Node.js o Laravel.</li>
-                            <li><span>Base de Datos</span> <br> Diseño y gestión de bases de datos
-                                PostgreSQL y MySQL.</li>
-                            <li><span>Desarrollo Full Stack</span> <br> Integración de frontend y backend para crear
-                                aplicaciones web completas y funcionales.</li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-contents" id="experiencia">
-                        <ul>
-                            <li><span>Desarrollo de sistema de control de mantenimientos</span> <br>Desarrollé un sistema para el monitoreo de los estados de mantenimientos de activos fijos, vehículos
-				y herramientas.
-				Principales aportes:<br>
-				<br>● Diseñé e implementé un algoritmo para calcular el estado de mantenimiento (al día,
-				próximo y atrasado) de los activos, basado en los parámetros definidos en los planes de
-				mantenimiento.
-				<br>● Automaticé el envío de alertas por SMS y correo electrónico cada 24 horas, reduciendo
-				tiempos de seguimiento y previniendo retrasos en mantenimientos.
-				<br>● Desarrollé la interfaz de usuario en Vue.js/Vuetify para visualizar estados, vincular planes
-				con activos y actualizar parámetros de mantenimiento.
-				<br>● Implementé un endpoint en Laravel para la consulta de mantenimientos, optimizando el
-				acceso a la información desde el frontend.
-				<br>Tecnologías usadas: PHP Laravel (backend), Vue.js + Vuetify (frontend), PostgreSQL (base de datos)</li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-contents" id="educacion">
-                        <ul>
-                            <li><span>Ingeniería en Desarrollo y Gestión de Software</span> <br> UTM | Actualidad</li>
-                            <li><span>Técnico Superior Universitario en Desarrollo de Software Multiplataforma</span> <br> UTM | 2023 - 2025</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <!-----------------seccion de servicios---------------------->
-
-    <section id="servicios">
-        <div class="container animate-on-scroll">
-            <h1 class="sub-title">Mis Servicios</h1>
-            <div class="servicios-list">
-                <div class="servicio-box">
-                    <i class="fa-solid fa-code"></i>
-                    <h2>Desarrollo Web</h2>
-                    <p>
-                        Ofrezco servicios de desarrollo web para crear sitios web modernos y funcionales. Utilizo las
-                        últimas tecnologías y prácticas de desarrollo para construir soluciones adaptadas a las
-                        necesidades de mis clientes, incluyendo HTML, CSS y JavaScript.
-                    </p>
-                </div>
-                <div class="servicio-box">
-                    <i class="fa-brands fa-react"></i>
-                    <h2>Aplicaciones Web</h2>
-                    <p>
-                        Desarrollo aplicaciones web personalizadas utilizando ReactJS para garantizar una experiencia de
-                        usuario fluida y dinámica.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-----------------seccion de portafolio---------------------->
-    <section id="portafolio">
-        <div class="container animate-on-scroll">
-            <h1 class="sub-title">Portafolio</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="imagen/correo.jpg" alt="Lista de tareas">
-                    <div class="layer">
-                        <h3>Módulo para ERP</h3>
-                        <p>Sistema de control de mantenimientos de activos, desarrollado con Vue.js y Vuetify. Backend Contruido con Laravel.</p>
-                        <a href="mantenimiento.html"><i
-                                class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="imagen/memboo.png" alt="App para Clima">
-                    <div class="layer">
-                        <h3>Memboo - POS</h3>
-                        <p>Aplicación web de punto de venta más gestión de clientes con membresias. Actualmente se encuentra en desarrollo con React.</p>
-                        <a href="memboo.html"><i
-                                class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="work">
-                    <img src="imagen/web-pro.png" alt="Tienda en Línea">
-                    <div class="layer">
-                        <h3>Servicios de desarrollo</h3>
-                        <p>Página para ofrecer servicios de desarrollo web. Construido con html, css y JavaScript.</p>
-                        <a href="https://web-pro-two.vercel.app/"  target="_blank"><i
-                                class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <div class="text-lg text-gray-300 leading-relaxed space-y-4 animate-on-scroll delay-100">
+                        <p>
+                            ¡Hola!  Soy un Desarrollador de Software Multiplataforma, me especializo en el desarrollo web. Me apasiona la tecnología y cada día aprendo algo nuevo. Cuento con experiencia creando sitios web atractivos con múltiples tecnologías.
+                        </p>
+                        <p>
+                            Mi objetivo es construir aplicaciones que no solo funcionen a la perfección, sino que también ofrezcan una experiencia de usuario intuitiva y agradable. Me encanta resolver problemas complejos y aprender nuevas tecnologías constantemente.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-----------------seccion de contacto---------------------->
-    <section id="contacto">
-        <div class="container animate-on-scroll">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contáctame</h1>
-                    <div class="social-icons">
-                        <a href="https://wa.me/529995865749" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://www.linkedin.com/in/juan-adolfo-poot-93b4bb271" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-			<a href="mailto:juanadolfopootbalam1@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-			<a href="https://github.com/Adolfo-Poot30" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                    <a class="btn btn2" href="CV_Poot_Juan.pdf" target="_blank">Ver CV</a>
+        </section>
 
-                </div>
-                <div class="contact-right">
-                    <form action="#" method="post" id="contact-form" class="contact-form">
-                        <input type="text" id="name" placeholder="Tu nombre" required>
-                        <input type="email" id="email" placeholder="Tu correo" required>
-			<input type="text" id="phone" placeholder="Tu teléfono" required>
-                        <textarea id="message" rows="6" placeholder="Tu mensaje" required></textarea>
-                        <button type="submit" class="btn btn2">Enviar</button>
-                    </form>
-                </div>
+        <!-- ==== Sección Habilidades ==== -->
+        <section id="habilidades" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-800 overflow-hidden">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-cyan-400 animate-on-scroll">
+                    Habilidades
+                </h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
+                    
+			<div class="bg-gray-700 py-4 px-5 rounded-lg shadow-md transition duration-300 hover:bg-cyan-500 hover:text-gray-900 hover:scale-105 cursor-default animate-on-scroll flex items-center">
+			    <i class="devicon-javascript-plain text-2xl mr-3"></i>
+			    <span class="font-medium text-lg">JavaScript (ES6+)</span>
+			</div>
 
+			<div class="bg-gray-700 py-4 px-5 rounded-lg shadow-md transition duration-300 hover:bg-cyan-500 hover:text-gray-900 hover:scale-105 cursor-default animate-on-scroll flex items-center">
+			    <i class="devicon-nodejs-plain text-2xl mr-3"></i>
+			    <span class="font-medium text-lg">Node.js</span>
+			</div>
+
+			<div class="bg-gray-700 py-4 px-5 rounded-lg shadow-md transition duration-300 hover:bg-cyan-500 hover:text-gray-900 hover:scale-105 cursor-default animate-on-scroll flex items-center">
+			    <i class="devicon-laravel-plain text-2xl mr-3"></i>
+			    <span class="font-medium text-lg">Laravel</span>
+			</div>
+
+			<div class="bg-gray-700 py-4 px-5 rounded-lg shadow-md transition duration-300 hover:bg-cyan-500 hover:text-gray-900 hover:scale-105 cursor-default animate-on-scroll flex items-center">
+			    <i class="devicon-java-plain text-2xl mr-3"></i>
+			    <span class="font-medium text-lg">Java core</span>
+			</div>
+
+			<div class="bg-gray-700 py-4 px-5 rounded-lg shadow-md transition duration-300 hover:bg-cyan-500 hover:text-gray-900 hover:scale-105 cursor-default animate-on-scroll flex items-center">
+			    <i class="devicon-vuejs-plain text-2xl mr-3"></i>
+			    <span class="font-medium text-lg">Vue.js</span>
+			</div>
+
+			<div class="bg-gray-700 py-4 px-5 rounded-lg shadow-md transition duration-300 hover:bg-cyan-500 hover:text-gray-900 hover:scale-105 cursor-default animate-on-scroll flex items-center">
+			    <i class="devicon-postgresql-plain text-2xl mr-3"></i> 
+			    <span class="font-medium text-lg">SQL (PostgreSQL)</span>
+			</div>
+
+			<div class="bg-gray-700 py-4 px-5 rounded-lg shadow-md transition duration-300 hover:bg-cyan-500 hover:text-gray-900 hover:scale-105 cursor-default animate-on-scroll flex items-center">
+			    <i class="devicon-git-plain text-2xl mr-2"></i>
+			    <i class="devicon-github-original text-2xl mr-3"></i>
+			    <span class="font-medium text-lg">Git & GitHub</span>
+			</div>                    
+                </div>
             </div>
+        </section>
+
+        <!-- ==== Sección Proyectos ==== -->
+        <section id="proyectos" class="py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-cyan-400 animate-on-scroll">
+                    Proyectos
+                </h2>
+                
+                <!-- Grid de Proyectos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <!-- Proyecto 1 (Repite este bloque) -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-cyan-500/20 animate-on-scroll">
+                        <img class="h-56 w-full object-cover" 
+                             src="imagen/mantenimiento.jpeg" 
+                             alt="Vista previa del Proyecto 1">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Módulo para ERP</h3>
+                            <p class="text-gray-400 mb-4">
+                                Sistema de control de mantenimientos de activos, desarrollado con Vue.js y Vuetify. Backend Contruido con Laravel.
+                            </p>
+                            <div class="flex gap-4 mt-auto">
+                                <a href="mantenimiento.html" class="text-cyan-400 hover:text-cyan-300 font-medium transition duration-300">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyecto 2 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-cyan-500/20 animate-on-scroll">
+                        <img class="h-56 w-full object-cover" 
+                             src="imagen/memboo.png" 
+                             alt="Vista previa del Proyecto 2">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Memboo - POS</h3>
+                            <p class="text-gray-400 mb-4">
+                                Aplicación web de punto de venta más gestión de clientes con membresias. Actualmente se encuentra en desarrollo con React.
+                            </p>
+                            <div class="flex gap-4 mt-auto">
+                                <a href="memboo.html" class="text-cyan-400 hover:text-cyan-300 font-medium transition duration-300">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyecto 3 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-cyan-500/20 animate-on-scroll">
+                        <img class="h-56 w-full object-cover" 
+                             src="imagen/web-pro.png" 
+                             alt="Vista previa del Proyecto 3">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Servicios de desarrollo</h3>
+                            <p class="text-gray-400 mb-4">
+                                Página para ofrecer servicios de desarrollo web. Construido con html, css y JavaScript.
+                            </p>
+                            <div class="flex gap-4 mt-auto">
+                                <a href="https://web-pro-two.vercel.app/" class="text-cyan-400 hover:text-cyan-300 font-medium transition duration-300">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- ==== Sección Contacto ==== -->
+        <section id="contacto" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-800 overflow-hidden">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-cyan-400 animate-on-scroll">
+                    Contacto
+                </h2>
+                <p class="text-lg text-gray-400 mb-10 animate-on-scroll delay-100">
+                    Estoy abierto a nuevas oportunidades y colaboraciones. Si tienes un proyecto en mente o simplemente quieres saludar, ¡no dudes en contactarme!
+                </p>
+                <a href="mailto:juanadolfopootbalam1@gmail.com" class="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg animate-on-scroll delay-200">
+                    Envíame un correo
+                </a>
+            </div>
+        </section>
+    </main>
+
+<footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-700">
+    <div class="max-w-6xl mx-auto text-center">
+        
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="https://github.com/Adolfo-Poot30" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition duration-300" title="GitHub">
+                <span class="sr-only">GitHub</span>
+                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.5.49.09.66-.21.66-.47 0-.23-.01-1.008-.01-1.848-2.782.602-3.369-1.21-3.369-1.21-.446-1.13-1.09-1.43-1.09-1.43-.89-.607.07-.594.07-.594.98.07 1.5.998 1.5.998.87 1.488 2.28 1.058 2.84.81.09-.63.34-1.058.6-1.298-2.16-.247-4.43-1.076-4.43-4.8 0-1.06.38-1.923 1-2.665-.1-.247-.43-1.256.1-2.628 0 0 .82-.26 2.67.995A9.327 9.327 0 0112 7.068c.85.004 1.7.114 2.5.337 1.85-1.255 2.67-.995 2.67-.995.53 1.372.2 2.38.1 2.628.62.742 1 1.605 1 2.665 0 3.73-2.27 4.55-4.44 4.79.35.305.66.91.66 1.83 0 1.32-.01 2.39-.01 2.71 0 .26.17.56.67.47C19.137 20.194 22 16.44 22 12.017C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
+                </svg>
+            </a>
+
+            <a href="https://www.linkedin.com/in/juan-adolfo-poot-93b4bb271" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition duration-300" title="LinkedIn">
+                <span class="sr-only">LinkedIn</span>
+                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+            </a>
+
+            <a href="https://wa.me/529995865749" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition duration-300" title="WhatsApp">
+                <span class="sr-only">WhatsApp</span>
+                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 2.082.899 2.503.719 2.949.676.446-.043 1.436-.586 1.633-1.151.198-.565.198-1.05.149-1.151z" fill-rule="evenodd" />
+                </svg>
+            </a>
+
         </div>
-    <div id="toast" class="toast"></div>
-    <!-- Spinner oculto al inicio -->
-    <div id="loading-spinner"
-      style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.7); z-index:9999; display:none; align-items:center; justify-content:center;">
-      <div class="spinner"
-        style="border: 6px solid #f3f3f3; border-top: 6px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;">
-      </div>
+        
+        <p class="text-gray-500 text-sm">
+            Diseñado y desarrollado por Adolfo Poot.
+        </p>
+        <p class="text-gray-500 text-sm mt-1">
+            Construido con <span class="text-cyan-500">Tailwind CSS</span>.
+        </p>
     </div>
+</footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Lógica del Menú Móvil ---
+            const menuButton = document.getElementById('mobile-menu-button');
+            const menuContainer = document.getElementById('mobile-menu-container');
+            const iconBurger = document.getElementById('icon-burger');
+            const iconClose = document.getElementById('icon-close');
+            const menuLinks = document.querySelectorAll('.mobile-menu-link');
 
-    <style>
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
+            const toggleMenu = () => {
+                menuContainer.classList.toggle('hidden');
+                iconBurger.classList.toggle('hidden');
+                iconClose.classList.toggle('hidden');
+                const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', !isExpanded);
+            };
 
-        100% {
-          transform: rotate(360deg);
-        }
-      }
+            // Abrir/cerrar con el botón
+            menuButton.addEventListener('click', toggleMenu);
 
-      /* Asegura que el contenedor use flex solo cuando se le aplique por JS */
-      #loading-spinner {
-        display: none;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
+            // Cerrar el menú al hacer clic en un enlace
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!menuContainer.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
 
-        <div class="copyright animate-on-scroll" id="yearCopyright">
+            // --- Lógica de Animación de Scroll ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Añade la clase 'animate-visible' cuando el elemento entra en la vista
+                        entry.target.classList.add('animate-visible');
+                        // Deja de observar el elemento una vez que ha sido animado
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Animar cuando al menos el 10% del elemento sea visible
+            });
 
-            <p>&copy; <span id="currentYear"></span> Juan Adolfo Poot Balam</p>
-
-        </div>
-
-    </section>
-
-    <script src="app.js"></script>
+            // Selecciona todos los elementos que deben animarse
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 
 </body>
-
 </html>
