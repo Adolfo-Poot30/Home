@@ -40,6 +40,12 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
         /* ---- Fin de Estilos de Animación ---- */
+	@media (max-width: 768px) {
+	    #hero {
+		margin-top: -120px;   /* Subir el texto */
+	    }
+	}
+
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 antialiased">
@@ -93,7 +99,7 @@
 
     <!-- ==== Sección Hero (Introducción) ==== -->
     <header class="min-h-screen flex items-center justify-center text-center px-4 pt-16 pb-20 overflow-hidden">
-        <div class="max-w-4xl">
+        <div class="max-w-4xl" id="hero">
             <!-- CLASES DE ANIMACIÓN AÑADIDAS -->
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 animate-on-scroll delay-100">
                 <span class="block mb-2">¡Hola! Soy</span>
